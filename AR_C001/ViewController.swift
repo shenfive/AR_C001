@@ -22,15 +22,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.debugOptions = [ .showWorldOrigin,.showFeaturePoints ]
         let scene = SCNScene()
         
-        let text = SCNText(string: "Hello ARKit", extrusionDepth: 1)
-        text.firstMaterial?.diffuse.contents = UIColor.blue
-        print(text.font.pointSize)
-        print(text.boundingBox)
-        let textNode = SCNNode(geometry: text)
-        textNode.scale = SCNVector3(0.01, 0.01, 0.01)
-        textNode.position = SCNVector3(0, 0, -0.8)
-        scene.rootNode.addChildNode(textNode)
-
+        let sphere = SCNSphere(radius: 0.15)
+        sphere.materials.first?.diffuse.contents = UIImage(named: "worldmap")
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = SCNVector3(x: 0, y: 0, z: -0.5)
+        scene.rootNode.addChildNode(sphereNode)
+        
+        let box = SCNBox(width: 0.3, height: 0.3, length: 0.3, chamferRadius: 0)
+        box.materials.first?.diffuse.contents = UIImage(named: "worldmap")
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = SCNVector3(x: 0.5, y: 0, z: -0.5)
+        scene.rootNode.addChildNode(boxNode)
+        
+        
         sceneView.scene = scene
     }
     
