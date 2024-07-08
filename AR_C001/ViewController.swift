@@ -25,9 +25,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let box = SCNBox(width: 0.2, height: 0.2 , length: 0.2 , chamferRadius: 0)
 
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
-        box.materials = [material]
+        let material1 = SCNMaterial()
+        material1.diffuse.contents = UIColor.red
+        let material2 = SCNMaterial()
+        material2.diffuse.contents = UIColor.orange
+        let material3 = SCNMaterial()
+        material3.diffuse.contents = UIColor.yellow
+        let material4 = SCNMaterial()
+        material4.diffuse.contents = UIColor.green
+        let material5 = SCNMaterial()
+        material5.diffuse.contents = UIColor.blue
+        let material6 = SCNMaterial()
+        material6.diffuse.contents = UIColor.purple
+        box.materials = [material1, material2, material3, material4, material5, material6]
         
         let boxNode = SCNNode(geometry: box)
         boxNode.position = SCNVector3(0,0,-1)
