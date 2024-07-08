@@ -18,7 +18,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.delegate = self
         sceneView.showsStatistics = true
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        
+        sceneView.debugOptions = [ .showWorldOrigin,.showFeaturePoints ]
+        let scene = SCNScene()
         sceneView.scene = scene
     }
     
