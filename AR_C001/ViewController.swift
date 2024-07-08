@@ -21,6 +21,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.debugOptions = [ .showWorldOrigin,.showFeaturePoints ]
         let scene = SCNScene()
+        
+        
+        let box = SCNBox(width: 0.2, height: 0.2 , length: 0.2 , chamferRadius: 0)
+
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        box.materials = [material]
+        
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = SCNVector3(0,0,-1)
+        scene.rootNode.addChildNode(boxNode)
+
         sceneView.scene = scene
     }
     
